@@ -8,17 +8,21 @@ const GlobalStyles = createGlobalStyle`
 }
 html{
     &::-webkit-scrollbar{
-        width: 0.5rem;
+        width: 1rem;
     }
     &::-webkit-scrollbar-thumb{
-        background-color: darkgrey;
+        background-color: #999;
+        border-radius: 3rem;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #ccc;
     }
     body{
         font-family: 'Open Sans', sans-serif;
     }
     h4{ 
         font-family: 'Montserrat', sans-serif;
-        padding: 1rem;
+        padding: 1rem 0;
     }
     h3{
         font-size: 2.5rem;
@@ -29,7 +33,15 @@ html{
         color: #333;
         padding: 0.25rem;
     }
+    
 }
+@media (max-width: 768px) {
+        html{
+            h3{
+                font-size: 2rem;
+            }
+        }
+    }
 `;
 
 export default GlobalStyles;
