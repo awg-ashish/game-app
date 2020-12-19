@@ -35,10 +35,10 @@ html{
     }
     
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
         html{
             h3{
-                font-size: 2rem;
+                font-size: 1rem;
             }
         }
     }

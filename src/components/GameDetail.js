@@ -101,14 +101,6 @@ const Detail = styled(motion.div)`
     img {
         width: 100%;
     }
-    h3 {
-        font-size: 2rem;
-    }
-    @media (max-width: 768px) {
-        h3 {
-            font-size: 0.7rem;
-        }
-    }
 `;
 
 const Stats = styled(motion.div)`
@@ -122,7 +114,7 @@ const Info = styled(motion.div)`
 const Platforms = styled(motion.div)`
     display: flex;
     justify-content: space-evenly;
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         flex-direction: column;
         text-align: left;
     }
@@ -146,7 +138,7 @@ const Gallery = styled(motion.div)`
         margin: left;
         padding: 0.5rem;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
         img {
             flex-direction: column;
             width: 70vw;
@@ -164,7 +156,7 @@ const Button = styled.button`
     color: white;
     cursor: pointer;
     outline: none;
-    @media (max-width: 768px);
+    @media (max-width: 900px);
      {
         padding: 0.5rem 3rem;
     }
