@@ -3,22 +3,22 @@ const base_url = "https://api.rawg.io/api";
 //Getting the date
 
 const getCurrentMonth = () => {
-  const month = new Date().getMonth() + 1;
-  if (month < 10) {
-    return `0${month}`;
-  } else {
-    return month;
-  }
+    const month = new Date().getMonth() + 1;
+    if (month < 10) {
+        return `0${month}`;
+    } else {
+        return month;
+    }
 };
 console.log(getCurrentMonth());
 
 const getCurrentDay = () => {
-  const day = new Date().getDate();
-  if (day < 10) {
-    return `0${day}`;
-  } else {
-    return day;
-  }
+    const day = new Date().getDate();
+    if (day < 10) {
+        return `0${day}`;
+    } else {
+        return day;
+    }
 };
 console.log(getCurrentDay());
 
@@ -37,11 +37,11 @@ export const newGames_url = `${base_url}/games?dates=${lastYear},${currentYear}&
 export const gameDetails_url = (gameId) => `${base_url}/games/${gameId}`;
 
 export const gameScreenshots_url = (gameId) =>
-  `${base_url}/games/${gameId}/screenshots`;
+    `${base_url}/games/${gameId}/screenshots`;
 
-export const searchGames_url = (game_name) => {
-  console.log(`${base_url}/games?search=${game_name}&page_size=9`);
-  return `${base_url}/games?search=${game_name}&page_size=9`;
+export const searchGames_url = (game_name, page_no = 1) => {
+    console.log(`${base_url}/games?search=${game_name}&page_size=9`);
+    return `${base_url}/games?search=${game_name}&page=${page_no}&page_size=9`;
 };
 
 export const search_url = (gameId) => `${base_url}/games/search/${gameId}`;
