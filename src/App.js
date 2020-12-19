@@ -3,7 +3,9 @@ import Home from "./pages/Home";
 import { Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
 import Search from "./pages/Search";
+
 function App() {
+  
   return (
     <div className="App">
       <GlobalStyles />
