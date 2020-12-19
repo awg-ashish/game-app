@@ -6,40 +6,45 @@ import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import GameDetail from "../components/GameDetail";
 import { useLocation } from "react-router-dom";
-const Home = () => {
+const Search = () => {
   const location = useLocation();
-  const pathId = location.pathname.split("/")[2];
+  const pathId = location.pathname.split("/")[3];
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadGames());
   }, [dispatch]);
 
-  const { popular } = useSelector((state) => state.games);
+  const { searched } = useSelector((state) => state.games);
 
   return (
     <>
-      <GameList>
-        <AnimateSharedLayout>
-          <AnimatePresence>
-            {pathId && <GameDetail pathId={pathId} />}
-          </AnimatePresence>
-          <h3>Popular Games</h3>
-          <Games>
-            {popular.map((game) => (
-              <Game
-                name={game.name}
-                released={game.released}
-                rating={game.rating}
-                img={game.background_image}
-                key={game.id}
-                id={game.id}
-              />
-            ))}
-            <Button>Load More</Button>
-          </Games>
-        </AnimateSharedLayout>
-      </GameList>
+      {searched.length ? (
+        <GameList>
+          {console.log(searched)}
+          <AnimateSharedLayout>
+            <AnimatePresence>
+              {pathId && <GameDetail pathId={pathId} />}
+            </AnimatePresence>
+            <h3>Search Results</h3>
+            <Games>
+              {searched.map((game) => (
+                <Game
+                  name={game.name}
+                  released={game.released}
+                  rating={game.rating}
+                  img={game.background_image}
+                  key={game.id}
+                  id={game.id}
+                />
+              ))}
+              <Button>Load More</Button>
+            </Games>
+          </AnimateSharedLayout>
+        </GameList>
+      ) : (
+        ""
+      )}
     </>
   );
 };
@@ -80,4 +85,4 @@ const Button = styled.button`
     color: #ff7676;
   }
 `;
-export default Home;
+export default Search;
