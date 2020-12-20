@@ -10,8 +10,12 @@ export const gameReducer = (state = initState, action) => {
       return {
         ...state,
         popular: [...action.payload.popularData],
-        upcoming: [...action.payload.upcomingData],
-        newGames: [...action.payload.newGamesData],
+      };
+    case "CLEAR_GAMES":
+      console.log("games_cleared");
+      return {
+        ...state,
+        popular: [],
       };
     case "CLEAR_SEARCH":
       console.log("search_cleared");
@@ -24,7 +28,12 @@ export const gameReducer = (state = initState, action) => {
         ...state,
         searched: [...action.payload.searched],
       };
-
+    case "CLEAR_SEARCH":
+      console.log("search_cleared");
+      return {
+        ...state,
+        searched: [],
+      };
     default:
       return { ...state };
   }
